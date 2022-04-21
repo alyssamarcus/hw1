@@ -100,29 +100,62 @@
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
+
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS characters;
+DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS actors;
 
 -- Create new tables, according to your domain model
--- TODO!
+
+CREATE TABLE movies(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    year TEXT,
+    MPAA rating TEXT,
+    studio_id TEXT,
+    actor_id TEXT,
+    character_id TEXT,
+);
+
+CREATE TABLE studios(
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    studio TEXT,
+    movie_id INTEGER,
+);
+
+CREATE TABLE actors(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_name TEXT,
+    movie_id INTEGER, 
+    character_id INTEGER,
+);
+
+CREATE TABLE characters(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_name TEXT,
+    movie_id INTEGER, 
+    actor_id INTEGER,
+);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
+
+
 
 -- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
+
 
 -- The SQL statement for the movies output
--- TODO!
+
+
+
 
 -- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
+
 
 
 -- The SQL statement for the cast output
--- TODO!
+
+
+
