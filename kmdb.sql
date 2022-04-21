@@ -151,7 +151,7 @@ VALUES ("Christian Bale"), ("Michael Caine"), ("Liam Neeson"), ("Katie Holmes"),
  
  INSERT INTO characters (character_name, movie_id, actor_id)
  values ("Bruce Wayne", 1, 1),("Afred",1, 2), ("Ra's Al Ghul", 1, 3), ("Rachel Dawes", 1,4), ("Commissioner Gordon", 1, 5),
- ("Bruce Wayne", 2,1), ("Joker", 1,6), ("Harvey Dent", 2, 7), ("Alfred", 2, 2), ("Rachel Dawes", 2, 8), ("Bruce Wayne", 3, 1), 
+ ("Bruce Wayne", 2,1), ("Joker", 2,6), ("Harvey Dent", 2, 7), ("Alfred", 2, 2), ("Rachel Dawes", 2, 8), ("Bruce Wayne", 3, 1), 
  ("Commissioner Gordon", 3,5), ("Bane", 3, 9), ("John Blake", 3, 10), ("Selina Kyle", 3, 11);
 
 -- Prints a header for the movies output
@@ -176,12 +176,10 @@ ON movies.studio_id = studios.id;
 .print "Top Cast"
 .print "======="
 .print ""
-SELECT * FROM actors;
-SELECT * FROM characters;
 
 -- The SQL statement for the cast output
 
 SELECT movies.title, actors.actor_name, characters.character_name
 FROM characters
-INNER JOIN actors ON characters.actor.id = actors.id
+INNER JOIN actors ON characters.actor_id = actors.id
 INNER JOIN movies ON characters.movie_id = movies.id;
